@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Successfull done the GET request from the server");
 });
 
-let blogs = ["changess"];
+let blogs = [];
 
 app.get("/blogs", (req, res) => {
   res.json(blogs);
@@ -58,7 +58,26 @@ app.get("/blogs/read/:id",convertParams,(req,res)=>{
     ]);
    
 
-})
+});
+
+app.get("/blogs/delete/:id",convertParams,(req,res)=>{
+  const { id }= req.params;
+  const index = blogs.findIndex((item) => item.id === id);
+  
+  if(index === -1){
+    res.status(404).send({
+      message : "Not Found!"
+    });
+  }
+  
+  blogs.splice(index,1);
+  res.json(
+         
+          {response : `"Deleted!"`}
+  );
+ 
+
+});
 
 
 
