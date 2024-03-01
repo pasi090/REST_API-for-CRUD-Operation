@@ -60,16 +60,15 @@ app.get("/blogs/read/:id",convertParams,(req,res)=>{
 
 });
 
-app.get("/blogs/delete/:id",convertParams,(req,res)=>{
+app.delete("/blogs/delete/:id",convertParams,(req,res)=>{
   const { id }= req.params;
   const index = blogs.findIndex((item) => item.id === id);
   
   if(index === -1){
-    res.status(404).send({
+  res.status(404).send({
       message : "Not Found!"
     });
   }
-  
   blogs.splice(index,1);
   res.json(
          
@@ -78,8 +77,6 @@ app.get("/blogs/delete/:id",convertParams,(req,res)=>{
  
 
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`app is listing on PORT:${PORT}`);
