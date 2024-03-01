@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Successfull done the GET request from the server");
 });
 
-let blogs = [];
+let blogs = ["changess"];
 
 app.get("/blogs", (req, res) => {
   res.json(blogs);
