@@ -11,7 +11,7 @@ const convertParams = (req,res,next)=>{
 };
 
 app.get("/", (req, res) => {
-  res.send("Successfull GET request from the server");
+  res.send("Successfull done the GET request from the server");
 });
 
 let blogs = [];
